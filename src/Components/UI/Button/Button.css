@@ -1,0 +1,30 @@
+.Button {
+  box-sizing: border-box;
+  width: 14vw;
+  padding: 12px;
+  border-radius: 5px;
+  background-color: brown;
+  border: none;
+  font-weight: 600;
+  font-size: 1.2em;
+  margin: 10px auto;
+  color: aliceblue;
+  box-shadow: inset 0px 0px 14px 0px rgba(87, 85, 85, 0.9);
+}
+
+.Button.Success {
+  background-color: rgb(67, 148, 42);
+}
+
+.Button.Order {
+  background-color: rgb(255, 223, 41);
+  color: rgb(78, 78, 78);
+}
+
+.Button:hover {
+  cursor: pointer;
+}
+
+.Button:focus {
+  outline: none;
+}

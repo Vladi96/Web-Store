@@ -1,0 +1,23 @@
+.PropName {
+  color: rgb(116, 116, 116);
+  font-weight: 700;
+}
+.PropPrice {
+  color: rgb(255, 0, 0);
+  font-size: 1.4em;
+  font-weight: 700;
+  letter-spacing: 5px;
+  line-height: 50px;
+}
+.ProductHeader-ShortInfo-Container {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  border-top: 2px solid rgb(110, 110, 110);
+  border-bottom: 2px solid rgb(110, 110, 110);
+  padding: 30px;
+  box-sizing: border-box;
+}
+.ProductHeader-ShortInfo {
+  margin: auto;
+}

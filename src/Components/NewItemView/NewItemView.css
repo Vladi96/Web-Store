@@ -1,0 +1,10 @@
+.ViewItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 5vh 5vw;
+}
+
+.ItemInfo p {
+  text-transform: uppercase;
+}

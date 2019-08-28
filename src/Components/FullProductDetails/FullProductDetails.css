@@ -1,0 +1,27 @@
+.FullProductDetails {
+  width: 90%;
+  margin: 20px auto 0;
+}
+
+.FullProductDetails h2 {
+  margin: 50px auto;
+}
+
+.FullProductDetails table {
+  width: 100%;
+  font-size: 1.1em;
+}
+
+.FullProductDetails table tr {
+  height: 50px;
+}
+
+.FullProductDetails table tr:nth-of-type(odd) {
+  background-color: rgba(115, 211, 255, 0.363);
+}
+
+.FullProductDetails table th {
+  font-size: 1.2em;
+  font-weight: 600;
+  width: 50%;
+}

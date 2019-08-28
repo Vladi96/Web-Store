@@ -1,0 +1,17 @@
+.Nav-Element {
+  width: 9vw;
+  padding: 14px;
+  text-decoration: none;
+  color: rgb(236, 236, 236);
+}
+
+.Nav-Element:hover {
+  color: rgb(255, 242, 242);
+  background-color: rgba(131, 130, 130, 0.644);
+}
+
+.Nav-Element.active {
+  background-color: rgb(219, 219, 219);
+  color: rgb(109, 109, 109);
+  font-weight: bold;
+}

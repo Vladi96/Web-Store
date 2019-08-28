@@ -1,0 +1,6 @@
+.ViewItems {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  /* width: 80vw; */
+}

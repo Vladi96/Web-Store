@@ -1,0 +1,9 @@
+.Nav {
+  display: flex;
+  justify-content: flex-end;
+  flex-flow: row wrap;
+  box-sizing: border-box;
+  background-color: rgb(53, 68, 68);
+  text-transform: uppercase;
+  font-weight: 700;
+}

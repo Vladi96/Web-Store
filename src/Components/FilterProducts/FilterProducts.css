@@ -1,0 +1,11 @@
+.Filter {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  height: 100vh;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  margin-left: 40px;
+  padding-top: 3vh;
+  border: 1px solid rgba(66, 66, 66, 0.575);
+}

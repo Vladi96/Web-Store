@@ -1,0 +1,6 @@
+.ShortProductView-Container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 70vw;
+  justify-content: center;
+}

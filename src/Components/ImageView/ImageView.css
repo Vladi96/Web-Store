@@ -1,0 +1,65 @@
+.ProductHeader-ImageContainer {
+  width: 40vw;
+}
+
+.ProductHeader-ImageContainer .ProductHeader-Images {
+  display: flex;
+  flex-direction: row;
+  width: 75%;
+  box-sizing: border-box;
+  margin: auto;
+  box-shadow: inset 0px 0px 8px 6px rgba(201, 201, 201, 0.49);
+  padding: 5px;
+  border-radius: 9px;
+}
+
+.ProductHeader-ImageContainer .ProductHeader-FirstImg {
+  width: 40vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  margin: 10px auto;
+}
+
+.ProductHeader-ImageContainer .ProductHeader-FirstImg img {
+  box-sizing: border-box;
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.ProductHeader-ImageContainer
+  .ProductHeader-Images
+  .ProductHeader-Images-Image {
+  box-sizing: border-box;
+  padding: 1px;
+  flex-direction: row;
+  margin: auto;
+  width: 5vw;
+  display: flex;
+}
+
+.RightArrow {
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-bottom-width: 18px;
+  border-top-width: 18px;
+  border-left: 22px solid rgba(153, 153, 153, 0.767);
+  margin: auto 15px;
+}
+
+.LeftArrow {
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-bottom-width: 18px;
+  border-top-width: 18px;
+  border-right: 22px solid rgba(153, 153, 153, 0.767);
+  margin: auto 15px;
+}
+
+.Arrow:hover {
+  cursor: pointer;
+}

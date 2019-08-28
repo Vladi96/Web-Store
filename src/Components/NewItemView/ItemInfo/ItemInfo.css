@@ -1,0 +1,17 @@
+.ItemInfo {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: inherit;
+  width: 50vw;
+  max-height: 79vh;
+  overflow: auto;
+  padding: 20px;
+}
+
+.ItemInfo .Specifications {
+  text-transform: uppercase;
+  margin: 3vh;
+  font-weight: 600;
+  font-size: 1.4em;
+  letter-spacing: 0.6vw;
+}

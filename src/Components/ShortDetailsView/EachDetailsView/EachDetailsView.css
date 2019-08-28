@@ -1,0 +1,54 @@
+.Short-Product-View {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  box-sizing: border-box;
+  padding: 3vh 0;
+}
+
+.Short-Product-View .ShortProductView-Image {
+  margin: auto;
+  width: 15vw;
+  transform: scale(1);
+  transition: 0.4s ease-in-out;
+}
+
+.Short-Product-View .ShortProductView-Image:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.Short-Product-View h2 {
+  font-size: 1.6em;
+  width: 15vw;
+  margin: 3vh auto;
+}
+
+.Short-Product-View h2:hover {
+  cursor: pointer;
+}
+
+.Short-Product-View p {
+  color: rgb(116, 116, 116);
+  margin-bottom: 1vh;
+  font-weight: 400;
+  font-size: 1em;
+}
+.Short-Product-View p b {
+  font-weight: 700;
+  color: rgb(97, 96, 96);
+  font-size: 1.1em;
+}
+
+.Short-Product-View .Info-Container {
+  width: 80%;
+  margin: auto;
+  margin-top: 3vh;
+}
+.Short-Product-View .Price {
+  margin: 2vh;
+  color: rgb(255, 53, 53);
+  font-size: 1.2em;
+  font-weight: 700;
+  letter-spacing: 3px;
+}

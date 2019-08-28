@@ -1,0 +1,35 @@
+.Input,
+.Textarea {
+  margin: 10px;
+  padding: 8px;
+  font-size: 1.1em;
+  width: 90%;
+  margin: 10px auto;
+  font-weight: 600;
+  display: block;
+}
+
+.Input {
+  text-align: center;
+}
+
+.Input:focus,
+.Textarea:focus {
+  border: 2px solid #555;
+  outline-width: 0;
+}
+.Label {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.1em;
+}
+
+.Textarea {
+  resize: none;
+  height: 15vh;
+}
+
+.Text {
+  font-size: 1.2em;
+  color: #555;
+}
