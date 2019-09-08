@@ -13,7 +13,7 @@ const optionsContainer = props => {
 
     filters.forEach(el => {
       if (
-        el.includes(element.replace(/\s/g, "_")) &&
+        el.includes(element.replace(/"/, "").replace(/\s/g, "_")) &&
         el.includes(props.title.replace(/\s/g, "-"))
       ) {
         classes.push("isActive");

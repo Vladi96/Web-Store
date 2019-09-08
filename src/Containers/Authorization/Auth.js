@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
 import axios from "axios";
 import AuthForm from "../../Components/AuthForm/AuthForm";
+import Hoc from "../../Hoc/Hoc";
 
 import "./Auth.css";
 
@@ -16,7 +19,8 @@ class Auth extends Component {
         isValid: false
       }
     },
-    ValidFrom: false
+    ValidFrom: false,
+    helpMessage: ""
   };
 
   changeHandler(event, type) {
@@ -44,29 +48,74 @@ class Auth extends Component {
     axios
       .post(url, data)
       .then(res => {
-        console.log(res.data);
+        this.props.logUser(res.data.idToken, res.data.localId, data.email);
+
+        localStorage.setItem("expiresIn", res.data.expiresIn);
+        localStorage.token = res.data.idToken;
+        localStorage.localId = res.data.localId;
+        localStorage.setItem("refreshToken", res.data.refreshToken);
+        this.props.history.push("/");
       })
-      .catch(e => {
-        console.log(e);
+      .catch(error => {
+        switch (error.response.data.error.message) {
+          case "EMAIL_NOT_FOUND":
+            this.setState({
+              helpMessage: "Unfortunately, we can't find your account!"
+            });
+            break;
+          case "INVALID_PASSWORD":
+            this.setState({ helpMessage: "Wrong password!" });
+            break;
+          case "EMAIL_EXISTS":
+            this.setState({
+              helpMessage: "This email address already exists!"
+            });
+            break;
+
+          default:
+            break;
+        }
       });
   }
   render() {
-    console.log(this.state.form);
     return (
-      <div className="Auth">
-        <AuthForm
-          type="Sign In"
-          submit={e => this.onSubmitHandler(e, "SignIn")}
-          change={(e, type) => this.changeHandler(e, type)}
-        />
-        <AuthForm
-          type="Create New Account"
-          submit={e => this.onSubmitHandler(e)}
-          change={(e, type) => this.changeHandler(e, type)}
-        />
-      </div>
+      <Hoc>
+        <div className="Auth">
+          <AuthForm
+            type="Sign In"
+            submit={e => this.onSubmitHandler(e, "SignIn")}
+            change={(e, type) => this.changeHandler(e, type)}
+          />
+          <AuthForm
+            type="Create New Account"
+            submit={e => this.onSubmitHandler(e)}
+            change={(e, type) => this.changeHandler(e, type)}
+          />
+        </div>
+        {this.state.helpMessage !== "" ? (
+          <p className="HelpMessage">{this.state.helpMessage}</p>
+        ) : null}
+      </Hoc>
     );
   }
 }
 
-export default Auth;
+const mapDispatchToProps = dispatch => ({
+  logOut: expiresIn =>
+    dispatch({
+      type: "LOG_OUT_USER",
+      data: {
+        expiresIn
+      }
+    }),
+  logUser: (token, localId, email) =>
+    dispatch({
+      type: "SIGN_IN_USER",
+      data: { token, localId, email }
+    })
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Auth);

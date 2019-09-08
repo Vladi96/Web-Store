@@ -1,10 +1,12 @@
 const initialState = {
-  filters: {}
+  filters: {},
+  userId: null,
+  token: null,
+  email: ""
 };
 
 const reducer = (state = initialState, action) => {
   const filters = { ...state.filters };
-
   switch (action.type) {
     case "ADD_FILTER":
       const key = Object.keys(action.data)[0];
@@ -14,7 +16,6 @@ const reducer = (state = initialState, action) => {
         value.unshift(...filters[key]);
       }
       filters[key] = value;
-
       return {
         ...state,
         filters
@@ -35,7 +36,28 @@ const reducer = (state = initialState, action) => {
         filters: { ...filters }
       };
     }
+    case "REMEVE_ALL_FILTERS":
+      return {
+        ...state,
+        filters: {}
+      };
 
+    case "SIGN_IN_USER":
+      return {
+        ...state,
+        localId: action.data.localId,
+        token: action.data.token,
+        email: action.data.email
+      };
+
+    case "LOG_OUT_USER":
+      localStorage.clear();
+      return {
+        ...state,
+        userId: null,
+        token: null,
+        email: ""
+      };
     default:
       return { ...state };
   }

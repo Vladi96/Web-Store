@@ -23,7 +23,11 @@ const authForm = props => {
           type="password"
           onChange={e => props.change(e, "password")}
         />
-        <Button type="Success">Submit</Button>
+        <div className="OrderBtn">
+          <Button type="Success" click={e => props.submit(e)}>
+            Submit
+          </Button>
+        </div>
       </form>
     </div>
   );

@@ -3,7 +3,11 @@
   justify-content: flex-end;
   flex-flow: row wrap;
   box-sizing: border-box;
-  background-color: rgb(53, 68, 68);
+  background-color: rgba(255, 255, 255, 0);
   text-transform: uppercase;
   font-weight: 700;
+  font-size: .9em;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(143, 143, 143, 0.582);
+  margin: 0 20px 10px;
 }

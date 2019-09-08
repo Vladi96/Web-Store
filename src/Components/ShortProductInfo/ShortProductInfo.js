@@ -33,7 +33,9 @@ const shortProductInfo = props => {
           <span className="PropPrice">Price: ${props.price}</span>
         </Input>
       </div>
-      <Button type="Order">Add to Cart</Button>
+      <div className="OrderBtn">
+        <Button type="Order">Add to Cart</Button>
+      </div>
     </div>
   );
 };

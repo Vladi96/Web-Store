@@ -4,6 +4,7 @@ import OptionsContainer from "./OptionsContainer/OptionsContainer";
 import { connect } from "react-redux";
 
 import "./FilterProducts.css";
+
 class Filter extends Component {
   componentDidMount() {
     let searchArray = this.props.location.search.split("?");
@@ -19,9 +20,15 @@ class Filter extends Component {
     });
   }
 
+  componentWillUnmount() {
+    this.props.removeAllFilters();
+  }
+
   onSelectItem(item, name) {
     let toSearch = this.props.location.search;
     const indexOfItem = toSearch.indexOf(item);
+    name = name.replace(/"/, "");
+
     const indexOfName = toSearch.indexOf(name);
     const obj = {};
 
@@ -72,7 +79,7 @@ class Filter extends Component {
 
     this.props.history.push(toSearch);
   }
-  //IF YOU ADD NEW FILTER YOU SHOULD CHECK EachDetailsView COMPONENT!!!
+
   render() {
     return (
       <div className="Filter">
@@ -107,7 +114,8 @@ const mapDispatchtoProps = dispatch => ({
   },
   removeFilter: data => {
     dispatch({ type: "REMOVE_FILTER", data });
-  }
+  },
+  removeAllFilters: () => dispatch({ type: "REMEVE_ALL_FILTERS" })
 });
 
 export default connect(

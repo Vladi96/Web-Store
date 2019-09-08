@@ -1,26 +1,46 @@
 .Button {
   box-sizing: border-box;
-  width: 14vw;
-  padding: 12px;
-  border-radius: 5px;
-  background-color: brown;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  background-color: rgb(206, 206, 206);
   border: none;
   font-weight: 600;
-  font-size: 1.2em;
-  margin: 10px auto;
+  font-size: 1em;
   color: aliceblue;
-  box-shadow: inset 0px 0px 14px 0px rgba(87, 85, 85, 0.9);
+  width: 100%;
+}
+
+.Button.Confirm{
+  background-color: rgba(25, 187, 66, 0.933);
 }
 
 .Button.Success {
   background-color: rgb(67, 148, 42);
 }
 
-.Button.Order {
-  background-color: rgb(255, 223, 41);
-  color: rgb(78, 78, 78);
+.Button.Change{
+  background-color: rgba(255, 0, 0, 0.589);
+  font-weight: 600;
+  font-size: 1em;
+}
+.Button.Danger {
+  background-color: rgb(255, 0, 0);
+  
 }
 
+.Button.Order {
+  background-color: rgb(255, 230, 86);
+  color: rgb(0, 0, 0);
+
+}
+.Button.Button.Order:hover {
+  background-color: rgb(231, 197, 0);
+}
+.Button:hover{
+ transform: scale(1.1);
+ transition: 0.2s ease
+}
 .Button:hover {
   cursor: pointer;
 }
@@ -28,3 +48,4 @@
 .Button:focus {
   outline: none;
 }
+

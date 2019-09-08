@@ -7,7 +7,11 @@ import "./Button.css";
 const button = props => {
   let classes = ["Button", props.type];
 
-  return <button className={classes.join(" ")}>{props.children}</button>;
+  return (
+    <button className={classes.join(" ")} onClick={props.click}>
+      {props.children}
+    </button>
+  );
 };
 
 export default button;

@@ -3,7 +3,12 @@
   flex-direction: column;
   width: 20vw;
   box-sizing: border-box;
-  padding: 3vh 0;
+  padding: 1vh 0;
+}
+.OrderBtn{
+  width: 140px;
+  box-sizing: border-box;
+  margin: 10px auto;
 }
 
 .Short-Product-View .ShortProductView-Image {

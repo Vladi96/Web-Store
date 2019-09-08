@@ -1,0 +1,69 @@
+.AccountInfo{
+    margin-top: 50px;
+    width: 300px;
+    margin: auto;
+}
+.AccountInfo h3{
+    font-size: 1.4em;
+}
+
+.AccountInfo .EmailInfo{
+    margin: 20px;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+.AccountInfo .EmailInfo span{
+    text-decoration: underline;
+}
+
+.ChangePasswordField{
+    width: 290px;
+    margin: 0 auto;
+    animation: create-element .5s ease;
+}
+
+.HelpPasswordMessage{
+    background-color: rgba(218, 218, 218, 0.863);
+    padding: 10px;
+    margin:5px 0;
+    box-sizing: border-box;
+    border-radius: 3px;
+    animation: create-element 0.5s ease;
+    font-weight: 600;
+}
+    
+.HelpPasswordMessage.Error{
+   color: rgba(212, 17, 17, 0.863);
+}
+
+.HelpPasswordMessage.Success{
+   color: rgb(32, 141, 5);
+}
+
+.DeleteAccount{
+    display: flex;
+    justify-content: center;
+     align-items: center;
+}
+
+.DeleteAccount .Box{
+    width: 300px;
+    border: 1px solid #333;
+    padding: 30px;
+    margin: 50px 0;
+    background-color: rgba(204, 204, 204, 0.479);
+    border-radius: 3px;
+    font-size: 1.1em;    
+animation: create-element .5s ease;
+}
+
+@keyframes create-element{
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}

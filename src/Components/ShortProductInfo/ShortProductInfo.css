@@ -21,3 +21,7 @@
 .ProductHeader-ShortInfo {
   margin: auto;
 }
+
+.ProductHeader-ShortInfo-Container .OrderBtn{
+  width: 300px
+}
