@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { connect } from "react-redux";
 
 import ProductHeader from "../../Components/ProductHeader/ProductHeader";
 import deliveryImg from "../../assets/images/delivery.png";
@@ -13,8 +14,10 @@ class Product extends Component {
   state = {
     data: {}
   };
+  _isMounted = false;
 
   componentDidMount() {
+    this._isMounted = true;
     axios
       .get(
         "https://web-shop-00.firebaseio.com" +
@@ -22,11 +25,25 @@ class Product extends Component {
           ".json"
       )
       .then(res => {
-        this.setState({ data: res.data });
+        if (this._isMounted) {
+          const data = res.data;
+
+          data["key"] = this.props.location.pathname.split("/")[2];
+
+          this.setState({ data });
+        }
       })
       .catch(e => {
         console.log(e);
       });
+  }
+
+  componentWillUnmount() {
+    this.is_Mounted = false;
+  }
+
+  orderClickHandler(id) {
+    this.props.purchaseProduct(id);
   }
 
   render() {
@@ -34,8 +51,8 @@ class Product extends Component {
       <div className="Product">
         {this.state.data.images && this.state.data.productData ? (
           <ProductHeader
-            images={this.state.data.images}
-            data={this.state.data.productData}
+            orderClick={id => this.orderClickHandler(id)}
+            product={this.state.data}
           />
         ) : null}
         <div className="ProductHeader-OrderStatus">
@@ -60,4 +77,12 @@ class Product extends Component {
   }
 }
 
-export default Product;
+const mapDispatchToProps = dispatch => ({
+  purchaseProduct: id =>
+    dispatch({ type: "MAKE_PURCHASE", data: { productId: id } })
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Product);

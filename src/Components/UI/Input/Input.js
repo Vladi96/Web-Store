@@ -10,11 +10,9 @@ import "./Input.css";
 // value
 
 const inputElement = props => {
-  let element = null;
-
   switch (props.elementType.toLowerCase()) {
     case "input":
-      return (element = (
+      return (
         <Hoc>
           {/* <label className="Label">{props.placeholder}</label> */}
           <input
@@ -25,27 +23,52 @@ const inputElement = props => {
             placeholder={props.placeholder}
           />
         </Hoc>
-      ));
+      );
 
     case "textarea":
-      return (element = (
+      return (
         <Hoc>
           <label className="Label">{props.placeholder}</label>
           <textarea className="Textarea" placeholder={props.placeholder} />
         </Hoc>
-      ));
+      );
     case "text":
-      return (element = (
+      return (
         <Hoc>
           <p className="Text">{props.children}</p>
         </Hoc>
-      ));
+      );
+    case "select":
+      let options = [];
+      props.value.forEach(element => {
+        options.push(
+          <option key={element} value={element}>
+            {element}
+          </option>
+        );
+      });
+
+      if (!props.value.includes(props.selected)) {
+        options.push(
+          <option key={props.selected} value={props.selected}>
+            {props.selected}
+          </option>
+        );
+      }
+
+      return (
+        <select
+          value={props.selected}
+          onChange={props.onChange}
+          className="Select"
+        >
+          {options}
+        </select>
+      );
 
     default:
-      break;
+      return <></>;
   }
-
-  return { element };
 };
 
 export default inputElement;

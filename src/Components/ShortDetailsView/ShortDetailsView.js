@@ -6,9 +6,7 @@ import "./ShortDetailsView.css";
 const items = props => {
   return (
     <div className="ShortProductView-Container">
-      {props.data && props.clicked ? (
-        <EachDetail details={props.data} clicked={props.clicked} />
-      ) : null}
+      {props.details && props.clicked ? <EachDetail {...props} /> : null}
     </div>
   );
 };

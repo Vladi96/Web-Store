@@ -5,11 +5,18 @@
   color: rgb(0, 0, 0);
   border-radius: 3px;
   box-sizing: border-box;
+  position: relative;
 }
 
 .Nav-Element:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
+.NumberOfPurchases{
+  color:rgb(185, 9, 9);
+  font-size: .9em;
+  position: absolute;
+  bottom: 4px;
 }
 
 .Nav-Element.active {

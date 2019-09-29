@@ -15,7 +15,9 @@ class Nav extends Component {
         <NavElement path={"/account"}>
           {this.props.email !== "" ? this.props.email : "Acount"}
         </NavElement>
-        <NavElement path={"/cart"}>Cart</NavElement>
+        <NavElement count={this.props.cart.length} path={"/cart"}>
+          Cart
+        </NavElement>
       </Hoc>
     );
     if (this.props.location.pathname.split("/")[1] === "dashboard") {
@@ -31,7 +33,8 @@ class Nav extends Component {
 }
 
 const mapStateToProps = state => ({
-  email: state.email
+  email: state.email,
+  cart: state.cart
 });
 
 export default connect(mapStateToProps)(withRouter(Nav));

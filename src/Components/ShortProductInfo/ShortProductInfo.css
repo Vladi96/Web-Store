@@ -12,7 +12,8 @@
 .ProductHeader-ShortInfo-Container {
   display: flex;
   flex-direction: column;
-  width: 40vw;
+  width: 45%;
+  margin: 0 auto;
   border-top: 2px solid rgb(110, 110, 110);
   border-bottom: 2px solid rgb(110, 110, 110);
   padding: 30px;
@@ -24,4 +25,12 @@
 
 .ProductHeader-ShortInfo-Container .OrderBtn{
   width: 300px
+}
+
+.ProductHeader-ShortInfo-Container .RemovePurchase{
+  width: 30px;
+  font-size: .6em;
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }

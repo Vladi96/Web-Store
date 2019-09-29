@@ -34,7 +34,9 @@ const shortProductInfo = props => {
         </Input>
       </div>
       <div className="OrderBtn">
-        <Button type="Order">Add to Cart</Button>
+        <Button click={() => props.orderClick(props.productKey)} type="Order">
+          Add to Cart
+        </Button>
       </div>
     </div>
   );

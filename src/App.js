@@ -8,6 +8,7 @@ import ControlAdminPanel from "./Containers/Admin/ControlPanel/ControlPanel";
 import ViewItems from "./Containers/ViewItems/ViewItems";
 import Product from "./Containers/Product/Product";
 import Account from "./Containers/Account/Account";
+import Cart from "./Containers/Cart/Cart";
 
 import "./App.css";
 
@@ -42,12 +43,14 @@ class App extends Component {
           <Route path="/dashboard" component={ControlAdminPanel} />
           <Route path="/product" component={Product} />
           <Route path="/account" component={Account} />
+          <Route path="/cart" component={Cart} />
           <Route exact={true} path="/" component={ViewItems} />
         </Switch>
       </div>
     );
   }
 }
+
 const mapDispatchToProps = dispatch => ({
   logUser: (token, localId, email) =>
     dispatch({
@@ -55,6 +58,7 @@ const mapDispatchToProps = dispatch => ({
       data: { token, localId, email }
     })
 });
+
 export default connect(
   null,
   mapDispatchToProps

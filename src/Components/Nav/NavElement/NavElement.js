@@ -11,6 +11,7 @@ const navElement = props => {
       {props.path ? (
         <NavLink exact={true} className="Nav-Element" to={props.path}>
           {props.children}
+          <span className="NumberOfPurchases">{props.count}</span>
         </NavLink>
       ) : null}
     </Hoc>

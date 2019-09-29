@@ -7,10 +7,20 @@ import "./ProductHeader.css";
 const productHeader = props => {
   return (
     <div className="ProductHeader-Container">
-      <h1 className="ProductHeader-Title">{props.data.product_name}</h1>
+      <h1 className="ProductHeader-Title">
+        {props.product.productData.product_name}
+      </h1>
       <div className="ProductHeader-ShortDetails">
-        {props.images ? <ImageView images={props.images} /> : null}
-        {props.data ? <ShortProductInfo {...props.data} /> : null}
+        {props.product.images ? (
+          <ImageView images={props.product.images} />
+        ) : null}
+        {props.product ? (
+          <ShortProductInfo
+            {...props.product.productData}
+            productKey={props.product.key}
+            orderClick={props.orderClick}
+          />
+        ) : null}
       </div>
     </div>
   );

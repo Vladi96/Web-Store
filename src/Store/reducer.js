@@ -2,7 +2,8 @@ const initialState = {
   filters: {},
   userId: null,
   token: null,
-  email: ""
+  email: "",
+  cart: localStorage.cart ? localStorage.cart.split(",") : []
 };
 
 const reducer = (state = initialState, action) => {
@@ -36,7 +37,7 @@ const reducer = (state = initialState, action) => {
         filters: { ...filters }
       };
     }
-    case "REMEVE_ALL_FILTERS":
+    case "REMOVE_ALL_FILTERS":
       return {
         ...state,
         filters: {}
@@ -58,6 +59,42 @@ const reducer = (state = initialState, action) => {
         token: null,
         email: ""
       };
+
+    case "MAKE_PURCHASE":
+      const updatedPurchases = [...state.cart];
+      updatedPurchases.push(action.data.productId);
+      localStorage.setItem("cart", updatedPurchases);
+
+      return {
+        ...state,
+        cart: updatedPurchases
+      };
+
+    case "REMOVE_PURCHASE":
+      let updatedCart = [...state.cart];
+      updatedCart.splice(updatedCart.indexOf(action.data.key), 1);
+
+      localStorage.setItem("cart", updatedCart);
+      return {
+        ...state,
+        cart: updatedCart
+      };
+
+    case "CHANGE_NUMBER_PRODUCT":
+      let newUpdatedCart = [...state.cart];
+
+      newUpdatedCart = newUpdatedCart.filter(el => el !== action.data.key);
+
+      newUpdatedCart.push(
+        ...Array(Number(action.data.newNumber)).fill(action.data.key)
+      );
+      localStorage.setItem("cart", newUpdatedCart);
+
+      return {
+        ...state,
+        cart: newUpdatedCart
+      };
+
     default:
       return { ...state };
   }

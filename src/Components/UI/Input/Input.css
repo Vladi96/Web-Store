@@ -14,9 +14,9 @@
 }
 
 .Input:focus,
-.Textarea:focus {
-  border: 2px solid #555;
-  outline-width: 0;
+.Textarea:focus, .Select:focus {
+  border: 1px solid #555;
+  outline-width:0;
 }
 .Label {
   font-weight: 600;
@@ -32,4 +32,8 @@
 .Text {
   font-size: 1.2em;
   color: #555;
+}
+
+.Select{
+  padding: 3px;
 }

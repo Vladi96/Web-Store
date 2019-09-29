@@ -86,6 +86,10 @@ class ViewItems extends Component {
     return { ...filtredData };
   }
 
+  orderClickHandler(id) {
+    this.props.purchaseProduct(id);
+  }
+
   render() {
     const data = this.filterData();
 
@@ -94,8 +98,9 @@ class ViewItems extends Component {
         <Filter />
         {this.state.haveData ? (
           <ShortDetailsView
+            orderClick={id => this.orderClickHandler(id)}
             clicked={key => this.onClickedProduct(key)}
-            data={data}
+            details={data}
           />
         ) : null}
       </div>
@@ -107,4 +112,12 @@ const mapStateToProps = state => ({
   filters: state.filters
 });
 
-export default connect(mapStateToProps)(ViewItems);
+const mapDispatchToProps = dispatch => ({
+  purchaseProduct: id =>
+    dispatch({ type: "MAKE_PURCHASE", data: { productId: id } })
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ViewItems);

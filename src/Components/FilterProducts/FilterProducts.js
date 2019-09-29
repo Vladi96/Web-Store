@@ -115,7 +115,7 @@ const mapDispatchtoProps = dispatch => ({
   removeFilter: data => {
     dispatch({ type: "REMOVE_FILTER", data });
   },
-  removeAllFilters: () => dispatch({ type: "REMEVE_ALL_FILTERS" })
+  removeAllFilters: () => dispatch({ type: "REMOVE_ALL_FILTERS" })
 });
 
 export default connect(
