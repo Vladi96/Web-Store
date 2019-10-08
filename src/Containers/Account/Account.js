@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import axios from "axios";
+
 import Auth from "../Authorization/Auth";
 import Hoc from "../../Hoc/Hoc";
+import UserOrders from "../../Components/UserOrders/UserOrders";
 import AccountInfo from "../../Components/AccountInfo/AccountInfo";
-import axios from "axios";
 
 class Account extends Component {
   state = {
@@ -13,8 +15,25 @@ class Account extends Component {
     },
     shouldChangePassword: false,
     passwordChangeHelpMessage: { value: "", type: "" },
-    deleteAlert: false
+    deleteAlert: false,
+    ordersData: {}
   };
+
+  componentDidMount() {
+    if (this.props.token) {
+      axios
+        .get(
+          "https://web-shop-00.firebaseio.com/orders.json?auth=" +
+            this.props.token +
+            `&orderBy="userId"&equalTo="` +
+            this.props.userId +
+            `"`
+        )
+        .then(res => {
+          this.setState({ ordersData: res.data });
+        });
+    }
+  }
 
   shouldChangePasswordHandler() {
     this.setState({ shouldChangePassword: !this.state.shouldChangePassword });
@@ -78,7 +97,7 @@ class Account extends Component {
         .catch(error => {
           this.setState({
             passwordChangeHelpMessage: {
-              value: "Sometings wrong!",
+              value: "Somethings wrong!",
               type: "Error"
             }
           });
@@ -102,23 +121,26 @@ class Account extends Component {
     return (
       <Hoc>
         {localStorage.token ? (
-          <AccountInfo
-            passwordHelpMessage={this.state.passwordChangeHelpMessage}
-            values={{ ...this.state.passwordValues }}
-            onChangePassword={(e, type) =>
-              this.onChangePasswordHandler(e, type)
-            }
-            changePassword={() => this.changePasswordHandler()}
-            log_Out={() => this.props.logOut()}
-            email={this.props.email}
-            togleChangePassword={() => this.shouldChangePasswordHandler()}
-            shouldChangePassword={this.state.shouldChangePassword}
-            deleteAlert={this.state.deleteAlert}
-            showDeleteAlert={() =>
-              this.setState({ deleteAlert: !this.state.deleteAlert })
-            }
-            confirmDeleteAccount={() => this.deleteAccountHandler()}
-          ></AccountInfo>
+          <>
+            <AccountInfo
+              passwordHelpMessage={this.state.passwordChangeHelpMessage}
+              values={{ ...this.state.passwordValues }}
+              onChangePassword={(e, type) =>
+                this.onChangePasswordHandler(e, type)
+              }
+              changePassword={() => this.changePasswordHandler()}
+              log_Out={() => this.props.logOut()}
+              email={this.props.email}
+              togleChangePassword={() => this.shouldChangePasswordHandler()}
+              shouldChangePassword={this.state.shouldChangePassword}
+              deleteAlert={this.state.deleteAlert}
+              showDeleteAlert={() =>
+                this.setState({ deleteAlert: !this.state.deleteAlert })
+              }
+              confirmDeleteAccount={() => this.deleteAccountHandler()}
+            ></AccountInfo>
+            <UserOrders data={this.state.ordersData} />
+          </>
         ) : (
           <Auth {...this.props}></Auth>
         )}
@@ -129,7 +151,8 @@ class Account extends Component {
 
 const mapStateToProps = state => ({
   email: state.email,
-  token: state.token
+  token: state.token,
+  userId: state.userId
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -41,7 +41,7 @@ const accountInfo = props => {
       <div className="Box">
         <p>Are you sure you want to delete your account?</p>
         <Button type="Confirm" click={props.showDeleteAlert}>
-          Cencel
+          Cancel
         </Button>
         <Button type="Danger" click={props.confirmDeleteAccount}>
           Delete My Account
@@ -49,6 +49,7 @@ const accountInfo = props => {
       </div>
     </div>
   );
+
   return (
     <div className="AccountInfo">
       <h3>User Info</h3>

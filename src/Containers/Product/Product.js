@@ -42,8 +42,13 @@ class Product extends Component {
     this.is_Mounted = false;
   }
 
-  orderClickHandler(id) {
-    this.props.purchaseProduct(id);
+  orderClickHandler(id, price) {
+    const data = {
+      image: this.state.data.images[0],
+      productData: { ...this.state.data.productData }
+    };
+
+    this.props.purchaseProduct(id, price, data);
   }
 
   render() {
@@ -51,7 +56,9 @@ class Product extends Component {
       <div className="Product">
         {this.state.data.images && this.state.data.productData ? (
           <ProductHeader
-            orderClick={id => this.orderClickHandler(id)}
+            orderClick={id =>
+              this.orderClickHandler(id, this.state.data.productData.price)
+            }
             product={this.state.data}
           />
         ) : null}
@@ -78,8 +85,11 @@ class Product extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  purchaseProduct: id =>
-    dispatch({ type: "MAKE_PURCHASE", data: { productId: id } })
+  purchaseProduct: (id, price, productData) =>
+    dispatch({
+      type: "MAKE_PURCHASE",
+      data: { id, price, productData }
+    })
 });
 
 export default connect(

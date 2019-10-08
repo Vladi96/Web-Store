@@ -7,6 +7,7 @@
   margin: 10px auto;
   font-weight: 600;
   display: block;
+  box-sizing: border-box;
 }
 
 .Input {

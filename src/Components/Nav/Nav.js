@@ -13,7 +13,7 @@ class Nav extends Component {
       <Hoc>
         <NavElement path={"/"}>Home</NavElement>
         <NavElement path={"/account"}>
-          {this.props.email !== "" ? this.props.email : "Acount"}
+          {this.props.email !== "" ? this.props.email : "Account"}
         </NavElement>
         <NavElement count={this.props.cart.length} path={"/cart"}>
           Cart

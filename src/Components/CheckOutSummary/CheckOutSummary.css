@@ -1,0 +1,43 @@
+.CheckOutSummary{
+    width: 70vw;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    color: rgb(95, 95, 95);
+}
+.CheckOutSummary .ShoppingDetails{
+    width: 30vw;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.CheckOutSummary .ShoppingDetails h2{
+    color: rgb(175, 167, 48);
+    margin-bottom: 10px;
+}
+
+.CheckOutSummary .ProductSummary{
+    border-top: 1px solid rgb(175, 167, 48);
+    width: 100%;
+}
+
+.CheckOutSummary .SummaryPrice{
+    border-top: 2px solid rgb(255, 0, 0);
+    font-size: 1.2em;
+    font-weight: 600;
+    text-align: right;
+}
+
+.SummaryBtnContainer{
+    width: 80%;
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.SummaryBtnContainer .Btn-Back,.SummaryBtnContainer .Btn-Order{
+    width: 14vw;
+}

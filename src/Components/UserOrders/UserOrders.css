@@ -1,0 +1,33 @@
+.OrdersContainer{
+    width: 60vw;
+    margin: 0 auto;
+    font-size: 1em;
+}
+
+.OrdersContainer .OrdersContainer-Orders{
+    flex-wrap: wrap;
+    justify-content: center;
+    display: flex;
+}
+
+.OrdersContainer .OrdersContainer-Order:hover{
+    cursor: pointer;
+    background-color: rgba(230, 221, 210, 0.692);
+}
+
+.OrdersContainer .OrdersContainer-Order{
+    width: 200px;
+    border: 3px solid rgb(173, 192, 68);
+    padding: 8px;
+    box-sizing: border-box;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.OrdersContainer-Order li{
+    list-style: none;
+}
+
+.OrdersContainer .OrdersContainer-ShowOrder{
+    margin: 20px 0 60px;
+}

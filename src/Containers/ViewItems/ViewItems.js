@@ -37,13 +37,12 @@ class ViewItems extends Component {
 
   onClickedProduct(key) {
     this.props.history.push({
-      pathname: "/product/" + key,
-      state: { key }
+      pathname: "/product/" + key
     });
   }
 
   filterData() {
-    let filtredData = { ...this.state.data };
+    let filteredData = { ...this.state.data };
 
     let result = {};
 
@@ -66,7 +65,7 @@ class ViewItems extends Component {
       });
 
       //EACH PRODUCT
-      for (const [data_key, data_value] of Object.entries(filtredData)) {
+      for (const [data_key, data_value] of Object.entries(filteredData)) {
         //TEST DATA WITH FILTER
 
         // eslint-disable-next-line no-loop-func
@@ -74,20 +73,27 @@ class ViewItems extends Component {
           if (element.test(data_value.productData[filter_key].toLowerCase())) {
             result[data_key] = data_value;
           } else if (Object.keys(result).length < 1) {
-            filtredData = { ...result };
+            filteredData = { ...result };
           }
         });
       }
 
-      filtredData =
-        Object.keys(result).length > 0 ? { ...result } : { ...filtredData };
+      filteredData =
+        Object.keys(result).length > 0 ? { ...result } : { ...filteredData };
       result = {};
     }
-    return { ...filtredData };
+    return { ...filteredData };
   }
 
-  orderClickHandler(id) {
-    this.props.purchaseProduct(id);
+  orderClickHandler(id, price) {
+    axios
+      .get(
+        `https://web-shop-00.firebaseio.com/short-details/-LkiyEvGXFJGRvcQIRXr/${id}.json`
+      )
+      .then(res => {
+        this.props.purchaseProduct(id, price, res.data);
+      })
+      .catch(e => console.log(e));
   }
 
   render() {
@@ -98,7 +104,9 @@ class ViewItems extends Component {
         <Filter />
         {this.state.haveData ? (
           <ShortDetailsView
-            orderClick={id => this.orderClickHandler(id)}
+            orderClick={id =>
+              this.orderClickHandler(id, this.state.data[id].productData.price)
+            }
             clicked={key => this.onClickedProduct(key)}
             details={data}
           />
@@ -113,8 +121,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  purchaseProduct: id =>
-    dispatch({ type: "MAKE_PURCHASE", data: { productId: id } })
+  purchaseProduct: (id, price, productData) =>
+    dispatch({
+      type: "MAKE_PURCHASE",
+      data: { id, price, productData }
+    })
 });
 
 export default connect(

@@ -14,7 +14,6 @@ const inputElement = props => {
     case "input":
       return (
         <Hoc>
-          {/* <label className="Label">{props.placeholder}</label> */}
           <input
             value={props.value}
             onChange={props.onChange}

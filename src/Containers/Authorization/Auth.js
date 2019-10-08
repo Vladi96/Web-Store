@@ -54,7 +54,7 @@ class Auth extends Component {
         localStorage.token = res.data.idToken;
         localStorage.localId = res.data.localId;
         localStorage.setItem("refreshToken", res.data.refreshToken);
-        this.props.history.push("/");
+        this.props.history.goBack();
       })
       .catch(error => {
         switch (error.response.data.error.message) {
@@ -71,7 +71,21 @@ class Auth extends Component {
               helpMessage: "This email address already exists!"
             });
             break;
-
+          case "INVALID_EMAIL":
+            this.setState({
+              helpMessage: "Please enter a valid email address!"
+            });
+            break;
+          case "MISSING_PASSWORD":
+            this.setState({
+              helpMessage: "Please enter a password!"
+            });
+            break;
+          case "WEAK_PASSWORD : Password should be at least 6 characters":
+            this.setState({
+              helpMessage: "Password should be at least 6 characters!"
+            });
+            break;
           default:
             break;
         }

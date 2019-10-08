@@ -28,16 +28,30 @@ const eachDetail = props => {
     ];
   }
 
+  if (props.type === "Order") {
+    classes = [
+      "ProductSummary-Container",
+      "ProductSummary-Image",
+      "ProductSummary-Info",
+      "DisableBtn",
+      "Remove",
+      "ProductSummary-Price"
+    ];
+  }
+
   for (const key in props.details) {
     const countPurchased = props.cart.filter(product => product === key).length;
     data.push(
       <div key={key} className={classes[0]}>
-        <h2 onClick={() => props.clicked(key)}>
-          {props.details[key].productData.product_name}
-        </h2>
+        <div
+          className="Title"
+          onClick={props.clicked ? () => props.clicked(key) : null}
+        >
+          <h2>{props.details[key].productData.product_name}</h2>
+        </div>
         <img
           className={classes[1]}
-          onClick={() => props.clicked(key)}
+          onClick={props.clicked ? () => props.clicked(key) : null}
           src={props.details[key].image}
           alt="Product"
         />
@@ -70,25 +84,26 @@ const eachDetail = props => {
             ) : null}
             Price: $
             {new Intl.NumberFormat("en-IN").format(
-              props.type
+              props.type && countPurchased !== 0
                 ? countPurchased * props.details[key].productData.price
                 : props.details[key].productData.price
             )}
           </p>
         </div>
-
-        <div className={classes[3]}>
-          <Button
-            click={
-              props.type === "Purchases"
-                ? () => props.removePurchase(key)
-                : () => props.orderClick(key)
-            }
-            type={classes[4]}
-          >
-            {props.type === "Purchases" ? "X" : "Add to Cart"}
-          </Button>
-        </div>
+        {props.type !== "Order" ? (
+          <div className={classes[3]}>
+            <Button
+              click={
+                props.type === "Purchases"
+                  ? () => props.removePurchase(key)
+                  : () => props.orderClick(key)
+              }
+              type={classes[4]}
+            >
+              {props.type === "Purchases" ? "X" : "Add to Cart"}
+            </Button>
+          </div>
+        ) : null}
       </div>
     );
   }

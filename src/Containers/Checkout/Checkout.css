@@ -1,0 +1,21 @@
+.Checkout{
+    width: 45vw;
+    margin: 0 auto;
+    font-weight: 500;
+}
+
+.SubmitBtn{
+    width: 30%;
+    margin: 0 auto;
+}
+
+.Disable{
+    display: none;
+}
+
+.InvalidInput{
+    color:rgb(255, 0, 0);
+    font-weight: 700;
+    font-size: 1.1em;
+    box-sizing: border-box;
+}

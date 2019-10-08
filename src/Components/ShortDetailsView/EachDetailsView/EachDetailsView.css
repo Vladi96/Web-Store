@@ -1,9 +1,12 @@
+/* Home View */
+
 .Short-Product-View {
   display: flex;
   flex-direction: column;
-  width: 20vw;
+  width: 17vw;
   box-sizing: border-box;
   padding: 1vh 0;
+  font-size: .9em;
 }
 
 .NotFound{
@@ -19,7 +22,7 @@
 
 .Short-Product-View .ShortProductView-Image {
   margin: auto;
-  width: 15vw;
+  max-width: 14vw;
   transform: scale(1);
   transition: 0.4s ease-in-out;
 }
@@ -29,13 +32,12 @@
   transform: scale(1.2);
 }
 
-.Short-Product-View h2 {
-  font-size: 1.6em;
+.Short-Product-View .Title {
   width: 15vw;
   margin: 3vh auto;
 }
 
-.Short-Product-View h2:hover {
+.Short-Product-View .Title:hover {
   cursor: pointer;
 }
 
@@ -65,31 +67,32 @@
 }
 
 /* Purchase */
-
 .ShortPurchasesView{
   display: flex;
-  width: 700px;
+  width: 100%;
   box-sizing: border-box;
-  margin: 0 auto;
-  padding: 1vh 0;
+  padding-bottom: 10px ;
+  font-size:1.2em;
   position: relative;
-  height: 180px;
-  font-size: 15px;
-  margin-bottom: 20px;
+  height: 28vh;
+}
+.ShortPurchasesView + .ShortPurchasesView{
+  border-top: 1px solid #333;
 }
 
-.ShortPurchasesView h2{
+.ShortPurchasesView .Title{
   position: absolute;
   left: 50%;
+  top: 0;
   transform: translateX(-50%);
 }
 
 .ShortPurchaseImage{
   margin: auto;
-  width: 12vw;
+  width: 16vw;
   transform: scale(1);
   transition: 0.4s ease-in-out;
-  margin-top: 40px;
+  overflow: hidden;
 }
 
 .ShortPurchasesView h2:hover{
@@ -102,30 +105,72 @@
 }
 
 .PurchaseInfo{
-  width: 300px;
-  margin-top: 40px;
+  align-self: center;
+  padding: 8px;
+  border-radius: 3px;
+  margin: 0;
+  margin-left: 30px;
+  width: 35vw;
   background-color: rgba(190, 190, 107, 0.349);
-  padding: 5px
 }
 
 .RemoveBtn{
   width: 30px;
-  position: absolute;
-  right: 0;
+  margin-top: 5px;
 }
 
 .PriceContainer{
+  align-self: flex-end;
+  text-align: center;
   width: 50%;
-  position: absolute;
-  bottom: -5px;
-  right: 10px;
 }
 
 .PriceContainer .Price{
- text-align: end;
+  letter-spacing: normal;
+  margin: 0 0 15px;
 }
 
 .PriceContainer select{
   margin-right: 20px;
   width: 40px;
-  }
+}
+
+/* Order Summary */
+
+.ProductSummary-Container{
+  width: 100%;
+  display: flex;
+  padding: 10px 0;
+  height: 20vh;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+.ProductSummary-Container + .ProductSummary-Container{
+  margin-top: 15px;
+  border-top: 1px solid rgb(175, 167, 48);
+}
+
+.ProductSummary-Container .Title {
+  position: absolute;
+  font-size: 1.1em;
+  left: 52%;
+  top:0;
+  transform: translateX(-50%);
+}
+
+.ProductSummary-Container .ProductSummary-Image{
+  width: 11vw;
+  margin: auto 0;
+}
+
+.ProductSummary-Container .ProductSummary-Info{
+  width: 20vw;
+  align-self: center;
+}
+
+.ProductSummary-Container .ProductSummary-Price{
+  align-self: center;
+}
