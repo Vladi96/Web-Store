@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-// import Input from "../UI/Input/Input";
-// import Button from "../UI/Button/Button";
 import ViewItem from "../NewItemView/NewItemView";
 
 import "./AddNewItem.css";

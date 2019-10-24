@@ -10,6 +10,8 @@ import Product from "./Containers/Product/Product";
 import Account from "./Containers/Account/Account";
 import Cart from "./Containers/Cart/Cart";
 import Checkout from "./Containers/Checkout/Checkout";
+import SideDrawer from "./Components/SideDrawer/SideDrawer";
+import BackDrop from "./Components/SideDrawer/BackDrop";
 
 import "./App.css";
 
@@ -52,21 +54,41 @@ class App extends Component {
     }
   }
 
+  state = {
+    showMenu: false
+  };
+
+  handlerToggleMenu = () => {
+    this.setState(prevState => {
+      return { showMenu: !prevState.showMenu };
+    });
+  };
+
   render() {
     return (
-      <div className="App">
-        <Header />
-        <Switch>
-          <Route path="/dashboard" component={ControlAdminPanel} />
-          <Route path="/product" component={Product} />
-          <Route exact={true} path="/account" component={Account} />
-          <Route exact={true} path="/cart" component={Cart} />
-          {this.props.token ? (
-            <Route exact={true} path="/checkout" component={Checkout} />
-          ) : null}
-          <Route exact={true} path="/" component={ViewItems} />
-        </Switch>
-      </div>
+      <>
+        <Header toggleMenu={this.handlerToggleMenu} />
+
+        <SideDrawer showMenu={this.state.showMenu}></SideDrawer>
+        {this.state.showMenu ? (
+          <BackDrop
+            closeMenu={() => this.setState({ showMenu: false })}
+          ></BackDrop>
+        ) : null}
+
+        <div className="App">
+          <Switch>
+            <Route path="/dashboard" component={ControlAdminPanel} />
+            <Route path="/product" component={Product} />
+            <Route exact={true} path="/account" component={Account} />
+            <Route exact={true} path="/cart" component={Cart} />
+            {this.props.token ? (
+              <Route exact={true} path="/checkout" component={Checkout} />
+            ) : null}
+            <Route exact={true} path="/" component={ViewItems} />
+          </Switch>
+        </div>
+      </>
     );
   }
 }

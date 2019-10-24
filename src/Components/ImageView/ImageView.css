@@ -11,6 +11,7 @@
   box-shadow: inset 0px 0px 8px 6px rgba(201, 201, 201, 0.49);
   padding: 5px;
   border-radius: 9px;
+  height: 70px;
 }
 
 .ProductHeader-ImageContainer .ProductHeader-FirstImg {
@@ -36,8 +37,8 @@
   padding: 1px;
   flex-direction: row;
   margin: auto;
-  width: 5vw;
-  display: flex;
+  max-width: 60px;
+  max-height: 50px;
 }
 
 .RightArrow {

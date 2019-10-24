@@ -1,0 +1,27 @@
+.SideToggleButton{
+    width: 30px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin: auto auto auto 0;
+}
+
+.Button-Line{
+    width: 30px;
+    height: 2px;
+   border-bottom: 2px solid #fff;
+}
+
+@media(min-width:905px){
+    .SideToggleButton{
+        display: none;
+    }
+}
+@media(max-width:340px){
+    .SideToggleButton{
+        margin: auto 4px;
+    }
+}

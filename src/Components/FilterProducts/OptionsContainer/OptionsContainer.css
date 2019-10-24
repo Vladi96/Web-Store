@@ -18,16 +18,19 @@
   margin-bottom: 10px;
 }
 
-.OptionsContainer-Item:hover {
-  background-color: #94adff6b;
-  background: linear-gradient(
-    to bottom,
-    #3366ffb6 0%,
-    #6b90ff 47%,
-    #ccd8ff 100%
-  );
-  color: #fff;
-}
 .isActive {
   background-color: rgba(0, 17, 255, 0.329);
+}
+
+@media(min-width:700px){
+  .OptionsContainer-Item:hover {
+    background-color: #94adff6b;
+    background: linear-gradient(
+      to bottom,
+      #3366ffb6 0%,
+      #6b90ff 47%,
+      #ccd8ff 100%
+    );
+    color: #fff;
+  }
 }

@@ -1,40 +1,27 @@
 /* Home View */
-
 .Short-Product-View {
-  display: flex;
-  flex-direction: column;
-  width: 17vw;
-  box-sizing: border-box;
-  padding: 1vh 0;
+  margin: 2px;
   font-size: .9em;
+  background-color: #fff;
+  width: 230px;
 }
 
-.NotFound{
+.Short-Product-View .NotFound{
   font-size: 24px;
   margin-top: 40px;
 }
 
-.OrderBtn{
-  width: 140px;
+.Short-Product-View .OrderBtn{
+  width: 150px;
   box-sizing: border-box;
-  margin: 10px auto;
-}
-
-.Short-Product-View .ShortProductView-Image {
-  margin: auto;
-  max-width: 14vw;
-  transform: scale(1);
-  transition: 0.4s ease-in-out;
-}
-
-.Short-Product-View .ShortProductView-Image:hover {
-  cursor: pointer;
-  transform: scale(1.2);
+  margin: auto auto 0;
+  justify-self: end;
 }
 
 .Short-Product-View .Title {
-  width: 15vw;
-  margin: 3vh auto;
+  margin: 10px auto 20px;
+  height: 60px;
+  box-sizing: border-box;
 }
 
 .Short-Product-View .Title:hover {
@@ -47,23 +34,82 @@
   font-weight: 400;
   font-size: 1em;
 }
+
 .Short-Product-View p b {
   font-weight: 700;
   color: rgb(97, 96, 96);
   font-size: 1.1em;
+  display: block;
 }
 
-.Short-Product-View .Info-Container, .PurchaseInfo {
-  width: 80%;
+.Short-Product-View .Info-Container, .Short-Product-View.PurchaseInfo {
+  width: 90%;
   margin: auto;
-  margin-top: 3vh;
+  height: 160px;
 }
+
+.PurchaseInfo{
+ margin-top: 30px;
+}
+
+.Info-Container p  {
+  font-weight: 700;
+}
+
 .Short-Product-View .Price, .ShortPurchasesView .Price {
   margin: 2vh;
   color: rgb(255, 53, 53);
   font-size: 1.2em;
   font-weight: 700;
   letter-spacing: 3px;
+  height: 6vh;
+  box-sizing: border-box;
+}
+
+@media(max-width:720px){
+  .Short-Product-View{
+    width: 170px;
+  }
+
+  .Short-Product-View .Info-Container{
+    height: 140px;
+  }
+
+  .Short-Product-View .Title{
+    margin-bottom: 5px;
+  }
+
+  .Short-Product-View .Price{
+    height: 35px;
+  }
+}
+
+@media (max-width:400px){
+  .Short-Product-View{
+    width: 146px;
+    font-size: .66em;
+  }
+
+  .Short-Product-View .Title{
+    margin: 3px;
+    font-size: .67em;
+    height: 35px;
+  }
+
+  .Short-Product-View .OrderBtn{
+    width: 80%;
+  }
+}
+
+@media(max-width:1060px) and (min-width:400px) {
+  .Short-Product-View {
+    font-size: .7em;
+    width:170px;
+  }
+
+  .Short-Product-View .Price{
+    margin: 5px;
+  }
 }
 
 /* Purchase */
@@ -72,10 +118,11 @@
   width: 100%;
   box-sizing: border-box;
   padding-bottom: 10px ;
-  font-size:1.2em;
+  font-size: 1.1em;
   position: relative;
-  height: 28vh;
+  height: 200px;
 }
+
 .ShortPurchasesView + .ShortPurchasesView{
   border-top: 1px solid #333;
 }
@@ -87,56 +134,60 @@
   transform: translateX(-50%);
 }
 
-.ShortPurchaseImage{
-  margin: auto;
-  width: 16vw;
-  transform: scale(1);
-  transition: 0.4s ease-in-out;
-  overflow: hidden;
-}
-
 .ShortPurchasesView h2:hover{
   cursor: pointer;
 }
 
-.ShortPurchaseImage:hover{
-  cursor: pointer;
-  transform: scale(1.2);
-}
 
-.PurchaseInfo{
+.ShortPurchasesView .PurchaseInfo{
   align-self: center;
   padding: 8px;
   border-radius: 3px;
   margin: 0;
   margin-left: 30px;
-  width: 35vw;
+  width: 70%;
   background-color: rgba(190, 190, 107, 0.349);
 }
 
-.RemoveBtn{
+.ShortPurchasesView .RemoveBtn{
   width: 30px;
   margin-top: 5px;
 }
 
-.PriceContainer{
+.ShortPurchasesView .PriceContainer{
   align-self: flex-end;
   text-align: center;
   width: 50%;
 }
 
-.PriceContainer .Price{
+.ShortPurchasesView .PriceContainer .Price{
   letter-spacing: normal;
   margin: 0 0 15px;
 }
 
-.PriceContainer select{
+.ShortPurchasesView .PriceContainer select{
   margin-right: 20px;
   width: 40px;
 }
 
-/* Order Summary */
+@media(max-width:1040px){
+  .ShortPurchasesView{
+      font-size: 12px;
+      margin-bottom: 20px;
+  }
 
+  .ShortPurchasesView .PurchaseInfo{
+    margin: 20px 0 0 10px;
+    padding: 3px;
+    width: 75%;
+  }
+
+  .ShortPurchasesView .Title{
+    font-size: 11px;
+  }
+}
+
+/* Order Summary */
 .ProductSummary-Container{
   width: 100%;
   display: flex;
@@ -161,13 +212,8 @@
   transform: translateX(-50%);
 }
 
-.ProductSummary-Container .ProductSummary-Image{
-  width: 11vw;
-  margin: auto 0;
-}
-
 .ProductSummary-Container .ProductSummary-Info{
-  width: 20vw;
+  width: 300px;
   align-self: center;
 }
 

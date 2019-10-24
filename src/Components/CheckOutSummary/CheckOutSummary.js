@@ -10,7 +10,7 @@ const checkOutSummary = props => {
   return (
     <div className="CheckOutSummary">
       <h1>Check Out Summary</h1>
-      <div className="ShoppingDetails">
+      <div className="CheckOutSummary-ShoppingDetails">
         <h2>Shipping Details</h2>
         <p>
           <span>Email:</span> {props.email}
@@ -22,19 +22,19 @@ const checkOutSummary = props => {
           <span>Address:</span> {props.address.value}
         </p>
       </div>
-      <div className="ProductSummary">
+      <div className="CheckOutSummary-ProductSummary">
         <EachDetailsView
           details={props.productData}
           type="Order"
         ></EachDetailsView>
       </div>
-      <div className="SummaryPrice">
+      <div className="CheckOutSummary-SummaryPrice">
         <span>Total price:</span> ${" "}
         {new Intl.NumberFormat("en-IN").format(
           Math.abs(props.price.toFixed(2))
         )}
       </div>
-      <div className="SummaryBtnContainer">
+      <div className="CheckOutSummary-SummaryBtnContainer">
         <div className="Btn-Back">
           <Button type="Danger" click={props.goBack}>
             Back

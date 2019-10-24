@@ -9,3 +9,22 @@
 .Auth-Form h2 {
   margin-bottom: 20px;
 }
+.OrderBtn{
+  width: 200px;
+  margin: 0 auto;
+}
+
+@media(max-width: 1025px){
+  .Auth-Form{
+    padding: 0;
+    width: 80%;
+    border-top: 1px solid #999;
+    border-bottom: none;
+    margin-top: 50px;
+
+  }
+  .Auth-Form+.Auth-Form{
+    border-bottom: 1px solid #999;
+    margin-top: 20px;
+  }
+}

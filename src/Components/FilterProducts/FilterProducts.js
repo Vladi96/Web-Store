@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import OptionsContainer from "./OptionsContainer/OptionsContainer";
 import { connect } from "react-redux";
+
+import OptionsContainer from "./OptionsContainer/OptionsContainer";
 
 import "./FilterProducts.css";
 
@@ -16,12 +17,10 @@ class Filter extends Component {
       const obj = {};
       obj[key] = values;
 
-      this.props.createFilter(obj);
+      if (!this.props.filters[key]) {
+        this.props.createFilter(obj);
+      }
     });
-  }
-
-  componentWillUnmount() {
-    this.props.removeAllFilters();
   }
 
   onSelectItem(item, name) {
@@ -108,17 +107,19 @@ class Filter extends Component {
   }
 }
 
-const mapDispatchtoProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   createFilter: data => {
     dispatch({ type: "ADD_FILTER", data });
   },
   removeFilter: data => {
     dispatch({ type: "REMOVE_FILTER", data });
-  },
-  removeAllFilters: () => dispatch({ type: "REMOVE_ALL_FILTERS" })
+  }
+});
+const mapStateToProps = state => ({
+  filters: state.filters
 });
 
 export default connect(
-  null,
-  mapDispatchtoProps
+  mapStateToProps,
+  mapDispatchToProps
 )(withRouter(Filter));

@@ -5,8 +5,8 @@
     box-sizing: border-box;
     color: rgb(95, 95, 95);
 }
-.CheckOutSummary .ShoppingDetails{
-    width: 30vw;
+.CheckOutSummary-ShoppingDetails{
+    width: 350px;
     padding: 10px;
     margin: 10px 0;
     text-align: left;
@@ -14,30 +14,44 @@
     font-size: 17px;
 }
 
-.CheckOutSummary .ShoppingDetails h2{
+.CheckOutSummary-ShoppingDetails h2{
     color: rgb(175, 167, 48);
     margin-bottom: 10px;
 }
 
-.CheckOutSummary .ProductSummary{
+.CheckOutSummary-ProductSummary{
     border-top: 1px solid rgb(175, 167, 48);
     width: 100%;
 }
 
-.CheckOutSummary .SummaryPrice{
+.CheckOutSummary-SummaryPrice{
     border-top: 2px solid rgb(255, 0, 0);
     font-size: 1.2em;
     font-weight: 600;
     text-align: right;
 }
 
-.SummaryBtnContainer{
+.CheckOutSummary-SummaryBtnContainer{
     width: 80%;
     margin: 40px auto;
     display: flex;
     justify-content: space-around;
 }
 
-.SummaryBtnContainer .Btn-Back,.SummaryBtnContainer .Btn-Order{
+.SummaryBtnContainer .Btn-Back, .SummaryBtnContainer .Btn-Order{
     width: 14vw;
+}
+
+.CheckOutSummary-ProductSummary-Info{
+    width: 300px;
+    margin-top: 18px;
+}
+
+@media(max-width:850px){
+    .CheckOutSummary {
+        font-size: 12px;
+        margin: 20px 0;
+        width: 100%;
+        padding: 10px 3px;
+    }
 }

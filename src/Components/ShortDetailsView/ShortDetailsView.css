@@ -1,6 +1,11 @@
 .ShortProductView-Container {
   display: flex;
   flex-wrap: wrap;
-  width: 70vw;
-  justify-content: flex-start;
+  width: 80vw;
+}
+
+@media(max-width:905px){
+  .ShortProductView-Container{
+    width: 100%;
+  }
 }

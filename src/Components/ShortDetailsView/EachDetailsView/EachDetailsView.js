@@ -2,8 +2,8 @@ import React from "react";
 import Hoc from "../../../Hoc/Hoc";
 import Button from "../../UI/Button/Button";
 import Input from "../../UI/Input/Input";
-
 import { connect } from "react-redux";
+import Img from "../../UI/Img/Img";
 
 import "./EachDetailsView.css";
 
@@ -49,25 +49,20 @@ const eachDetail = props => {
         >
           <h2>{props.details[key].productData.product_name}</h2>
         </div>
-        <img
-          className={classes[1]}
+        <Img
           onClick={props.clicked ? () => props.clicked(key) : null}
           src={props.details[key].image}
           alt="Product"
         />
+
         <div className={classes[2]}>
+          <p>Processor: {props.details[key].productData.processor_model}</p>
           <p>
-            <b>Processor</b>: {props.details[key].productData.processor_model}
+            System Memory (RAM): {props.details[key].productData.system_memory}
           </p>
+          <p>Screen Size: {props.details[key].productData.screen_size}</p>
           <p>
-            <b> System Memory (RAM)</b>:{" "}
-            {props.details[key].productData.system_memory}
-          </p>
-          <p>
-            <b>Screen Size</b>: {props.details[key].productData.screen_size}
-          </p>
-          <p>
-            <b>Total Storage Capacity</b>:{" "}
+            Total Storage Capacity:
             {props.details[key].productData.total_storage_capacity}
           </p>
         </div>
@@ -107,6 +102,7 @@ const eachDetail = props => {
       </div>
     );
   }
+
   if (data.length < 1) {
     data.push(
       <h4 className="NotFound" key="Not Found">
@@ -114,6 +110,7 @@ const eachDetail = props => {
       </h4>
     );
   }
+
   return <Hoc>{data}</Hoc>;
 };
 

@@ -11,25 +11,41 @@ class ViewItem extends Component {
     images: [],
     imagePreview: "",
     inputsValue: {
-      productName: this.prepareControl("product name", "string", 4),
-      price: this.prepareControl("price", "number", 2),
-      quantity: this.prepareControl("quantity", "number", 1),
+      product_name: this.prepareControl(
+        "product name (DELL XPS 2IN1)",
+        "string",
+        4
+      ),
+      price: this.prepareControl("price (999)", "number", 2),
+      quantity: this.prepareControl("quantity (10)", "number", 1),
       specifications: true,
-      productBrand: this.prepareControl("product brand", "string", 1),
-      screenSize: this.prepareControl("screen size", "string", 2),
-      storageType: this.prepareControl("storage type", "string", 2),
-      screenResolution: this.prepareControl("screen resolution", "string", 4),
-      touchScreen: this.prepareControl("touch screen", "string", 2),
-      totalStorageCapacity: this.prepareControl(
-        "total storage capacity",
+      product_brand: this.prepareControl("product brand (Dell)", "string", 1),
+      screen_size: this.prepareControl('screen size (15")', "string", 2),
+      storage_type: this.prepareControl("storage type (SSD)", "string", 2),
+      screen_resolution: this.prepareControl(
+        "screen resolution (2560 x 1600 (Retina))",
+        "string",
+        4
+      ),
+      touch_screen: this.prepareControl("touch screen (Yes/No)", "string", 2),
+      total_storage_capacity: this.prepareControl(
+        "total storage capacity (512GB)",
         "string",
         3
       ),
-      systemMemory: this.prepareControl("system memory", "string", 1),
-      processorBrand: this.prepareControl("processor brand", "string", 3),
-      processorModel: this.prepareControl("processor model", "string", 4),
-      batteryLife: this.prepareControl("battery life", "string", 1),
-      productWeight: this.prepareControl("product weigth", "string", 2)
+      system_memory: this.prepareControl("system memory (8GB)", "string", 1),
+      processor_brand: this.prepareControl(
+        "processor brand (Intel)",
+        "string",
+        3
+      ),
+      processor_model: this.prepareControl(
+        "processor model (Intel Core i5-9300H 9th Generation)",
+        "string",
+        4
+      ),
+      battery_life: this.prepareControl("battery life (10h)", "string", 1),
+      product_weight: this.prepareControl("product weight (2kg)", "string", 2)
     },
     validForm: false
   };
@@ -140,12 +156,7 @@ class ViewItem extends Component {
   }
 
   checkValidityForm() {
-    // let validForm = true;
-    const stateObj = { ...this.state.inputsValue };
-
-    for (const key in stateObj) {
-      console.log(stateObj[key].isValid);
-    }
+    // const stateObj = { ...this.state.inputsValue };
   }
 
   onSubmitHandler(e) {
@@ -154,23 +165,42 @@ class ViewItem extends Component {
     const values = { ...this.state.inputsValue };
     const data = {};
     const nestedObj = {};
-    let index = 10;
 
     for (const key in values) {
       if (key !== "specifications") {
-        nestedObj[index + key] = values[key].value;
+        nestedObj[key] = values[key].value;
         data["productData"] = nestedObj;
-        index++;
       }
     }
-
     data["images"] = [...this.state.images];
+
+    let shortData = {
+      image: data.images[0],
+      productData: {
+        brand: data.productData.brand,
+        price: data.productData.price,
+        processor_model: data.productData.processor_model,
+        product_name: data.productData.product_name,
+        screen_size: data.productData.screen_size,
+        system_memory: data.productData.system_memory,
+        total_storage_capacity: data.productData.total_storage_capacity
+      }
+    };
 
     axios
       .post("https://web-shop-00.firebaseio.com/product.json", data)
       .then(response => {
-        // console.log(this.state.inputsValue);
-        // console.log(response);
+        if (response.status === 200) {
+          axios
+            .put(
+              `https://web-shop-00.firebaseio.com/short-details/-LkiyEvGXFJGRvcQIRXr/${response.data.name}.json`,
+              { ...shortData }
+            )
+            .then(res => {
+              console.log(res.code);
+            })
+            .catch(err => console.log(err));
+        }
       })
       .catch(e => {
         console.log(e);

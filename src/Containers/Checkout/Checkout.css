@@ -19,3 +19,11 @@
     font-size: 1.1em;
     box-sizing: border-box;
 }
+@media(max-width:500px){
+    .Checkout{
+        width: 85%;
+    }
+    .SubmitBtn{
+        width: 60%;
+    }
+}

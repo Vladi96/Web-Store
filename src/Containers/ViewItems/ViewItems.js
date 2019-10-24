@@ -3,7 +3,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 
 import ShortDetailsView from "../../Components/ShortDetailsView/ShortDetailsView";
-import Filter from "../../Components/FilterProducts/FilterProducts";
+import FilterProducts from "../../Components/FilterProducts/FilterProducts";
 
 import "./ViewItems.css";
 
@@ -13,6 +13,10 @@ class ViewItems extends Component {
     haveData: false
   };
   _isMounted = false;
+
+  componentWillMount() {
+    this.props.removeAllFilters();
+  }
 
   componentDidMount() {
     this._isMounted = true;
@@ -31,6 +35,7 @@ class ViewItems extends Component {
         console.log(e);
       });
   }
+
   componentWillUnmount() {
     this._isMounted = false;
   }
@@ -43,9 +48,7 @@ class ViewItems extends Component {
 
   filterData() {
     let filteredData = { ...this.state.data };
-
     let result = {};
-
     //EACH OTHER FILTER
     for (let [filter_key, [...filter_value]] of Object.entries(
       this.props.filters
@@ -66,8 +69,6 @@ class ViewItems extends Component {
 
       //EACH PRODUCT
       for (const [data_key, data_value] of Object.entries(filteredData)) {
-        //TEST DATA WITH FILTER
-
         // eslint-disable-next-line no-loop-func
         filter_value.forEach(element => {
           if (element.test(data_value.productData[filter_key].toLowerCase())) {
@@ -98,10 +99,11 @@ class ViewItems extends Component {
 
   render() {
     const data = this.filterData();
-
     return (
       <div className="ViewItems">
-        <Filter />
+        <div className="Filter-Container">
+          <FilterProducts />
+        </div>
         {this.state.haveData ? (
           <ShortDetailsView
             orderClick={id =>
@@ -125,7 +127,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch({
       type: "MAKE_PURCHASE",
       data: { id, price, productData }
-    })
+    }),
+  removeAllFilters: () => dispatch({ type: "REMOVE_ALL_FILTERS" })
 });
 
 export default connect(

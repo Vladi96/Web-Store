@@ -6,7 +6,7 @@ const header = props => {
   return (
     <Hoc>
       <header>
-        <Nav />
+        <Nav toggleMenu={props.toggleMenu} />
       </header>
     </Hoc>
   );

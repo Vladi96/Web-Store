@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 60vh;
+  position: relative;
 }
 
 .HelpMessage{
@@ -11,4 +12,15 @@
   color: rgb(228, 7, 7);
   font-weight: 700;
   font-size: 1.3em;
+}
+
+@media(max-width: 1025px){
+  .Auth{
+    height: 0 ;
+    flex-wrap: wrap;
+  }
+  .HelpMessage{
+    padding: 0 10px;  
+    font-size: 1.1em;
+  }
 }

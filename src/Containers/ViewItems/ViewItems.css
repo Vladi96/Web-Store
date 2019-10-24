@@ -1,5 +1,11 @@
 .ViewItems {
   display: flex;
   flex-direction: row;
-  background-color: #fff;
+  background-color: rgb(236, 234, 234);
+}
+
+@media(max-width:905px){
+  .Filter-Container{
+    display: none;
+  }
 }

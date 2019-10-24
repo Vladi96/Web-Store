@@ -3,7 +3,7 @@ import "./ImageView.css";
 
 class ImageView extends Component {
   state = {
-    firstimageIndex: 0,
+    firstImageIndex: 0,
     arrowImages: {
       showLeftArrow: false,
       showRightArrow: this.props.images.length > 4
@@ -15,7 +15,7 @@ class ImageView extends Component {
   };
 
   onMouseHoverHandler(index) {
-    this.setState({ firstimageIndex: index });
+    this.setState({ firstImageIndex: index });
   }
 
   changeImagesArrowHandler(side) {
@@ -77,7 +77,7 @@ class ImageView extends Component {
     });
 
     firstImg = (
-      <img alt="Product" src={this.props.images[this.state.firstimageIndex]} />
+      <img alt="Product" src={this.props.images[this.state.firstImageIndex]} />
     );
 
     return (

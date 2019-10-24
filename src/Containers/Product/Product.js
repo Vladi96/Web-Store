@@ -17,6 +17,7 @@ class Product extends Component {
   _isMounted = false;
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this._isMounted = true;
     axios
       .get(
