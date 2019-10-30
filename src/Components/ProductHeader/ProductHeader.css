@@ -3,14 +3,27 @@
   margin: auto;
   box-sizing: border-box;
 }
+
 .ProductHeader-ShortDetails {
   flex-direction: row;
   flex-wrap: wrap;
   display: flex;
   box-sizing: border-box;
-  padding-top: 5vh;
+  padding-top: 30px;
 }
+
 .ProductHeader-Title {
   font-size: 2.4em;
   font-weight: 600;
 }
+
+@media(max-width:1190px){
+  .ProductHeader-Container{
+    width: 100%;
+  }
+
+  .ProductHeader-Title{
+    font-size: 1.9em;
+  }
+}
+

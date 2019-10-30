@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Image = styled.img`
   max-width: 140px;
@@ -7,14 +7,29 @@ const Image = styled.img`
   margin: auto;
   cursor: pointer;
 
+  ${props =>
+    props.primary &&
+    css`
+      max-height: 80%;
+      max-width: 80%;
+    `}
+
   @media screen and (max-width: 720px) {
-    max-width: 90px;
-    max-height: 60px;
+    ${props =>
+      !props.primary &&
+      css`
+        max-width: 90px;
+        max-height: 60px;
+      `}
   }
 
   @media screen and (max-width: 1060px) {
-    max-width: 100px;
-    max-height: 80px;
+    ${props =>
+      !props.primary &&
+      css`
+        max-width: 100px;
+        max-height: 80px;
+      `}
   }
 
   @media screen and (min-width: 1000px) {
@@ -29,19 +44,40 @@ const Image = styled.img`
 const ContainerImg = styled.div`
   align-self: flex-end;
   height: 120px;
+
   @media screen and (max-width: 720px) {
-    height: 70px;
+    ${props =>
+      !props.primary &&
+      css`
+        height: 70px;
+      `}
   }
 
   @media screen and (max-width: 1060px) {
-    height: 90px;
+    ${props =>
+      !props.primary &&
+      css`
+        height: 90px;
+      `}
   }
+
+  ${props =>
+    props.primary &&
+    css`
+      width: 100%;
+      height: 100%;
+    `}
 `;
 
 const img = props => {
   return (
-    <ContainerImg>
-      <Image onClick={props.onClick} src={props.src} alt={props.alt}></Image>
+    <ContainerImg primary={props.primary}>
+      <Image
+        primary={props.primary}
+        onClick={props.onClick}
+        src={props.src}
+        alt={props.alt}
+      ></Image>
     </ContainerImg>
   );
 };

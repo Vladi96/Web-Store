@@ -1,33 +1,22 @@
 .ProductHeader-ImageContainer {
-  width: 40vw;
+  width: 500px;
 }
 
 .ProductHeader-ImageContainer .ProductHeader-Images {
   display: flex;
   flex-direction: row;
-  width: 75%;
+  width: 400px;
   box-sizing: border-box;
   margin: auto;
   box-shadow: inset 0px 0px 8px 6px rgba(201, 201, 201, 0.49);
-  padding: 5px;
-  border-radius: 9px;
+  border-radius: 7px;
   height: 70px;
 }
 
 .ProductHeader-ImageContainer .ProductHeader-FirstImg {
-  width: 40vw;
-  height: 40vh;
-  display: flex;
-  flex-direction: row;
-  box-sizing: border-box;
+  width: 100%;
+  height: 250px;
   margin: 10px auto;
-}
-
-.ProductHeader-ImageContainer .ProductHeader-FirstImg img {
-  box-sizing: border-box;
-  margin: auto;
-  max-height: 100%;
-  max-width: 100%;
 }
 
 .ProductHeader-ImageContainer
@@ -63,4 +52,29 @@
 
 .Arrow:hover {
   cursor: pointer;
+}
+
+@media (max-width:1190px){
+  .ProductHeader-ImageContainer .ProductHeader-Images{
+    margin-bottom: 20px;
+  }
+
+  .ProductHeader-ImageContainer{
+    width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 750px){
+  .ProductHeader-ImageContainer .ProductHeader-FirstImg{
+    height: 180px;
+  }
+
+  .ProductHeader-ImageContainer .ProductHeader-Images{
+      width: 90%;
+      margin: 10px auto;
+  }
+  .ProductHeader-ImageContainer .ProductHeader-Images img{
+    width: 45px;
+  }
 }

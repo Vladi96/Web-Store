@@ -1,9 +1,9 @@
 .Product {
   width: 80vw;
   margin: 0 auto;
-  background-color: #fff;
-  padding: 40px;
+  padding: 20px;
 }
+
 .ProductHeader-OrderStatus {
   display: flex;
   flex-wrap: wrap;
@@ -16,8 +16,20 @@
   padding: 20px;
   box-sizing: border-box;
 }
+
 .OrderStatus-Item {
   width: 100px;
   margin: 0 10px;
   box-sizing: border-box;
+}
+
+@media(max-width:1140px){
+  .Product{
+    padding: 0;
+    width: 100%;
+  }
+  .ProductHeader-OrderStatus{
+   width: 100%;
+
+  }
 }

@@ -1,6 +1,6 @@
 .FullProductDetails {
   width: 90%;
-  margin: 20px auto 0;
+  margin: 20px auto;
 }
 
 .FullProductDetails h2 {
@@ -24,4 +24,13 @@
   font-size: 1.2em;
   font-weight: 600;
   width: 50%;
+}
+
+@media (max-width:700px){
+  .FullProductDetails table{
+    font-size: .9em;
+  }
+  .FullProductDetails h2{
+    font-size: 1.2em;
+  }
 }

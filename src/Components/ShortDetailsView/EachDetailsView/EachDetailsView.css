@@ -4,6 +4,8 @@
   font-size: .9em;
   background-color: #fff;
   width: 230px;
+  max-height: 485px;
+  min-width: 145px;
 }
 
 .Short-Product-View .NotFound{
@@ -66,6 +68,21 @@
   box-sizing: border-box;
 }
 
+@media(max-width:1060px) and (min-width:400px) {
+  .Short-Product-View {
+    font-size: .7em;
+    width: 24%;
+  }
+
+  .Short-Product-View .OrderBtn{
+    width: 80%;
+  }
+
+  .Short-Product-View .Price{
+    margin: 5px;
+  }
+}
+
 @media(max-width:720px){
   .Short-Product-View{
     width: 170px;
@@ -84,32 +101,32 @@
   }
 }
 
+@media (max-width: 615px){
+  .Short-Product-View {
+    width: 32%;
+  }
+}
+
+@media ( max-width: 460px){
+  .Short-Product-View {
+    width: 48.7%;
+  }
+}
+
 @media (max-width:400px){
   .Short-Product-View{
-    width: 146px;
     font-size: .66em;
+  }
+
+  .Short-Product-View .OrderBtn{
+    width: 80%;
   }
 
   .Short-Product-View .Title{
     margin: 3px;
     font-size: .67em;
     height: 35px;
-  }
-
-  .Short-Product-View .OrderBtn{
-    width: 80%;
-  }
-}
-
-@media(max-width:1060px) and (min-width:400px) {
-  .Short-Product-View {
-    font-size: .7em;
-    width:170px;
-  }
-
-  .Short-Product-View .Price{
-    margin: 5px;
-  }
+  } 
 }
 
 /* Purchase */

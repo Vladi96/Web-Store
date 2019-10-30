@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Img from "../UI/Img/Img";
+
 import "./ImageView.css";
 
 class ImageView extends Component {
@@ -61,8 +63,8 @@ class ImageView extends Component {
   }
 
   render() {
-    let img = [],
-      firstImg = "";
+    let img = [];
+    // firstImg = "";
 
     this.props.images.forEach((element, index) => {
       img.push(
@@ -76,13 +78,19 @@ class ImageView extends Component {
       );
     });
 
-    firstImg = (
-      <img alt="Product" src={this.props.images[this.state.firstImageIndex]} />
-    );
+    // firstImg = (
+    //   <img alt="Product" src={this.props.images[this.state.firstImageIndex]} />
+    // );
 
     return (
       <div className="ProductHeader-ImageContainer">
-        <div className="ProductHeader-FirstImg">{firstImg}</div>
+        <div className="ProductHeader-FirstImg">
+          {/* {firstImg} */}
+          <Img
+            src={this.props.images[this.state.firstImageIndex]}
+            primary
+          ></Img>
+        </div>
         <div className="ProductHeader-Images">
           <div
             className={

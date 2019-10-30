@@ -1,11 +1,12 @@
 .ShortProductView-Container {
   display: flex;
   flex-wrap: wrap;
-  width: 80vw;
+  width: 80%;
+  margin: 0 auto;
 }
 
 @media(max-width:905px){
   .ShortProductView-Container{
-    width: 100%;
+    width: 97%;
   }
 }

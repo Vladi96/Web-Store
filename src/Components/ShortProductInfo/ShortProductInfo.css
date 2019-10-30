@@ -2,6 +2,7 @@
   color: rgb(116, 116, 116);
   font-weight: 700;
 }
+
 .PropPrice {
   color: rgb(255, 0, 0);
   font-size: 1.4em;
@@ -9,16 +10,18 @@
   letter-spacing: 5px;
   line-height: 50px;
 }
+
 .ProductHeader-ShortInfo-Container {
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 450px;
   margin: 0 auto;
   border-top: 2px solid rgb(110, 110, 110);
   border-bottom: 2px solid rgb(110, 110, 110);
-  padding: 30px;
+  padding: 20px;
   box-sizing: border-box;
 }
+
 .ProductHeader-ShortInfo {
   margin: auto;
 }
@@ -33,4 +36,24 @@
   position: absolute;
   right: 10px;
   top: 10px;
+}
+
+@media (max-width: 900px){
+  .ProductHeader-ShortInfo-Container{
+    font-size: .8em;
+  }
+
+  .PropPrice {
+      font-size: 1.2em;
+  }
+}
+
+@media (max-width: 500px){
+.ProductHeader-ShortInfo-Container{
+  width: 90%;
+}  
+
+.ProductHeader-ShortInfo-Container .OrderBtn{
+  width: 200px;
+}
 }
