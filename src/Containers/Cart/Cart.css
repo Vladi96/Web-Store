@@ -5,14 +5,8 @@
     box-sizing: border-box;
     font-size: 13px; 
     margin-bottom: 100px;
-
 }
 
-.Cart .PurchasedImg{
-    width: 15vw;
-    margin: auto;
-
-}
 .PurchasedInfo{
     padding: 10px 0;
      background-color: rgba(238, 238, 238, 0.719);
@@ -54,18 +48,30 @@
     margin: 60px 0 0 auto;
 }
 
-@media(max-width:1020px){
+@media(max-width:1030px){
     .Cart{
-        width: 100%;
+        width: 65vw;
         padding: 10px 5px;
     }
 }
-@media(max-width:650px){
+
+@media(max-width:700px){
+    .Cart{
+        width: 85vw;
+    }
+
     .PurchaseOrderBtn{
         width: 70%;
-        margin: 0 auto;
+        margin: 10px auto 10px;
     }
+
     .CartFooter{
         width: 100%;
+    }
+}
+
+@media (max-width: 520px){
+    .Cart{
+        width: 100vw;
     }
 }

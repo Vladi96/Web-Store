@@ -51,6 +51,11 @@ const ContainerImg = styled.div`
       css`
         height: 70px;
       `}
+    ${props =>
+      props.purchase &&
+      css`
+        width: 180px;
+      `}
   }
 
   @media screen and (max-width: 1060px) {
@@ -67,11 +72,18 @@ const ContainerImg = styled.div`
       width: 100%;
       height: 100%;
     `}
+
+  ${props =>
+    props.purchase &&
+    css`
+      width: 300px;
+      align-self: center;
+    `}
 `;
 
 const img = props => {
   return (
-    <ContainerImg primary={props.primary}>
+    <ContainerImg primary={props.primary} purchase={props.type}>
       <Image
         primary={props.primary}
         onClick={props.onClick}

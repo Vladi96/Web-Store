@@ -10,9 +10,12 @@ import "./Nav.css";
 
 class Nav extends Component {
   render() {
+    console.log();
     let nav = (
       <Hoc>
-        <SideToggleButton toggleMenu={this.props.toggleMenu}></SideToggleButton>
+        {this.props.location.pathname === "/" ? (
+          <SideToggleButton toggleMenu={this.props.toggleMenu} />
+        ) : null}
 
         <NavElement path={"/"}>Home</NavElement>
         <NavElement path={"/account"}>

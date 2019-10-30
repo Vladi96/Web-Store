@@ -50,19 +50,27 @@ const eachDetail = props => {
           <h2>{props.details[key].productData.product_name}</h2>
         </div>
         <Img
+          type={props.type}
           onClick={props.clicked ? () => props.clicked(key) : null}
           src={props.details[key].image}
           alt="Product"
         />
 
         <div className={classes[2]}>
-          <p>Processor: {props.details[key].productData.processor_model}</p>
           <p>
-            System Memory (RAM): {props.details[key].productData.system_memory}
+            <span className="Specification-Title">Processor:</span>{" "}
+            {props.details[key].productData.processor_model}
           </p>
-          <p>Screen Size: {props.details[key].productData.screen_size}</p>
           <p>
-            Total Storage Capacity:
+            <span className="Specification-Title">System Memory (RAM):</span>{" "}
+            {props.details[key].productData.system_memory}
+          </p>
+          <p>
+            <span className="Specification-Title">Screen Size:</span>{" "}
+            {props.details[key].productData.screen_size}
+          </p>
+          <p>
+            <span className="Specification-Title">Total Storage Capacity:</span>{" "}
             {props.details[key].productData.total_storage_capacity}
           </p>
         </div>
