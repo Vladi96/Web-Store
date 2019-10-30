@@ -1,3 +1,8 @@
+.NotFound{
+  margin: 50px auto;
+  font-size: 20px;
+}
+
 /* Home View */
 .Short-Product-View {
   margin: 2px;
@@ -163,7 +168,7 @@
   align-self: center;
   padding: 8px;
   border-radius: 3px;
-  margin: 0 3px 0 10px;
+  margin: 0 3px 0 15px;
   width: 70%;
   background-color: rgba(190, 190, 107, 0.349);
 }
@@ -206,7 +211,12 @@
   .ShortPurchasesView{
     font-size: 12px;
   }
-  
+
+  .ShortPurchasesView .PriceContainer .Price{
+    font-size: 1em;
+    height: 50px;
+  }
+
   .ShortPurchasesView .PurchaseInfo{
     align-self: flex-end;
     margin-bottom: 10px;
@@ -223,34 +233,34 @@
 
 /* Order Summary */
 .ProductSummary-Container{
-  width: 100%;
   display: flex;
-  padding: 10px 0;
-  height: 20vh;
-  flex-wrap: wrap;
+  height: 150px;
   position: relative;
-  justify-content: space-around;
-  overflow: hidden;
+  padding: 30px 8px 0;
 }
 
 .ProductSummary-Container + .ProductSummary-Container{
-  margin-top: 15px;
+  margin-top: 5px;
   border-top: 1px solid rgb(175, 167, 48);
 }
 
 .ProductSummary-Container .Title {
   position: absolute;
-  font-size: 1.1em;
-  left: 52%;
-  top:0;
+  font-size: .9em;
+  left: 50%;
+  top: 5px;
+  width: 100%;
   transform: translateX(-50%);
-}
+  }
 
 .ProductSummary-Container .ProductSummary-Info{
   width: 300px;
   align-self: center;
+  font-size: .9em;
+  padding: 5px 10px;
 }
 
 .ProductSummary-Container .ProductSummary-Price{
   align-self: center;
+  margin: 0 0 0 auto;
 }

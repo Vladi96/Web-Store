@@ -10,7 +10,6 @@ import "./Nav.css";
 
 class Nav extends Component {
   render() {
-    console.log();
     let nav = (
       <Hoc>
         {this.props.location.pathname === "/" ? (

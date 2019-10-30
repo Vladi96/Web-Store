@@ -114,7 +114,11 @@ const eachDetail = props => {
   if (data.length < 1) {
     data.push(
       <h4 className="NotFound" key="Not Found">
-        {props.type === "Purchases" ? "Empty Cart!" : "Not Found!"}
+        {props.type === "Purchases"
+          ? "Empty Cart!"
+          : props.viewList
+          ? "No products found in this category"
+          : "Not Found!"}
       </h4>
     );
   }

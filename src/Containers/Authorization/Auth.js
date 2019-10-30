@@ -10,11 +10,19 @@ import "./Auth.css";
 class Auth extends Component {
   state = {
     form: {
-      email: {
+      signIn_email: {
         value: "",
         isValid: false
       },
-      password: {
+      signIn_password: {
+        value: "",
+        isValid: false
+      },
+      signUp_email: {
+        value: "",
+        isValid: false
+      },
+      signUp_password: {
         value: "",
         isValid: false
       }
@@ -31,9 +39,9 @@ class Auth extends Component {
 
   onSubmitHandler(e, type) {
     e.preventDefault();
-    const data = {
-      email: this.state.form.email.value,
-      password: this.state.form.password.value,
+    let data = {
+      email: this.state.form.signUp_email.value,
+      password: this.state.form.signUp_password.value,
       returnSecureToken: true
     };
 
@@ -41,6 +49,8 @@ class Auth extends Component {
       "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyBm1TTJBHwknOYmhQgOjt_HhlWO31cYfic";
 
     if (type === "SignIn") {
+      data["email"] = this.state.form.signIn_email.value;
+      data["password"] = this.state.form.signIn_password.value;
       url =
         "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBm1TTJBHwknOYmhQgOjt_HhlWO31cYfic";
     }
@@ -98,12 +108,12 @@ class Auth extends Component {
           <AuthForm
             type="Sign In"
             submit={e => this.onSubmitHandler(e, "SignIn")}
-            change={(e, type) => this.changeHandler(e, type)}
+            change={(e, type) => this.changeHandler(e, "signIn_" + type)}
           />
           <AuthForm
             type="Create New Account"
             submit={e => this.onSubmitHandler(e)}
-            change={(e, type) => this.changeHandler(e, type)}
+            change={(e, type) => this.changeHandler(e, "signUp_" + type)}
           />
         </div>
         {this.state.helpMessage !== "" ? (

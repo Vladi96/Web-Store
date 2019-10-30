@@ -76,7 +76,7 @@ const ContainerImg = styled.div`
   ${props =>
     props.purchase &&
     css`
-      width: 300px;
+      width: 260px;
       align-self: center;
     `}
 `;

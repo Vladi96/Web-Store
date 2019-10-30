@@ -109,6 +109,7 @@ class ViewItems extends Component {
             orderClick={id =>
               this.orderClickHandler(id, this.state.data[id].productData.price)
             }
+            viewList={true}
             clicked={key => this.onClickedProduct(key)}
             details={data}
           />

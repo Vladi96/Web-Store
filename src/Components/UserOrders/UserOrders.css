@@ -1,7 +1,7 @@
 .OrdersContainer{
     width: 60vw;
     margin: 0 auto;
-    font-size: 1em;
+    font-size: 15px;
 }
 
 .OrdersContainer .OrdersContainer-Orders{
@@ -16,7 +16,7 @@
 }
 
 .OrdersContainer .OrdersContainer-Order{
-    width: 200px;
+    width: 170px;
     border: 3px solid rgb(173, 192, 68);
     padding: 8px;
     box-sizing: border-box;
@@ -30,4 +30,20 @@
 
 .OrdersContainer .OrdersContainer-ShowOrder{
     margin: 20px 0 60px;
+}
+
+@media(max-width: 660px){
+    .OrdersContainer{
+        width: 96vw;
+    }
+    .OrdersContainer .OrdersContainer-Order{
+        width: 138px;
+    }
+}
+
+@media ( max-width:400px){
+    .OrdersContainer{
+        width: 100vw;
+        font-size: 12px;
+    }
 }
