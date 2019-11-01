@@ -1,7 +1,7 @@
 .OptionsContainer {
   border-bottom: 1px solid rgba(192, 192, 192, 0.548);
   box-sizing: border-box;
-  padding-top: 2vh;
+  padding-top: 10px;
 }
 
 .OptionsContainer-Item {

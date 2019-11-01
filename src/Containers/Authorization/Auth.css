@@ -2,25 +2,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh;
-  position: relative;
+  padding: 40px 0;
 }
 
 .HelpMessage{
-  display: flex;
-  justify-content: center;
   color: rgb(228, 7, 7);
   font-weight: 700;
   font-size: 1.3em;
+  margin-bottom: 30px;
 }
 
 @media(max-width: 1025px){
   .Auth{
-    height: 0 ;
     flex-wrap: wrap;
   }
+
   .HelpMessage{
     padding: 0 10px;  
     font-size: 1.1em;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
   }
 }

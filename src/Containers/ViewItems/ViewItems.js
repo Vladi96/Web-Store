@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import ShortDetailsView from "../../Components/ShortDetailsView/ShortDetailsView";
 import FilterProducts from "../../Components/FilterProducts/FilterProducts";
+import Footer from "../../Containers/Footer/Footer";
 
 import "./ViewItems.css";
 
@@ -100,21 +101,27 @@ class ViewItems extends Component {
   render() {
     const data = this.filterData();
     return (
-      <div className="ViewItems">
-        <div className="Filter-Container">
-          <FilterProducts />
+      <>
+        <div className="ViewItems">
+          <div className="Filter-Container">
+            <FilterProducts />
+          </div>
+          {this.state.haveData ? (
+            <ShortDetailsView
+              orderClick={id =>
+                this.orderClickHandler(
+                  id,
+                  this.state.data[id].productData.price
+                )
+              }
+              viewList={true}
+              clicked={key => this.onClickedProduct(key)}
+              details={data}
+            />
+          ) : null}
         </div>
-        {this.state.haveData ? (
-          <ShortDetailsView
-            orderClick={id =>
-              this.orderClickHandler(id, this.state.data[id].productData.price)
-            }
-            viewList={true}
-            clicked={key => this.onClickedProduct(key)}
-            details={data}
-          />
-        ) : null}
-      </div>
+        <Footer />
+      </>
     );
   }
 }

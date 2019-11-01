@@ -1,0 +1,53 @@
+.Footer{
+    background-color: rgb(97, 97, 97);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.Map{
+    width: 390px;
+    height: 190px;
+    border: 0;
+    border-radius: 3px;
+    margin: 20px 0 35px 20px;
+}
+
+.Footer-Icon{
+    width: 35px;
+    margin: 1px 13px;
+    transition: 0.5s ease-in-out;
+}
+
+.Facebook:hover{
+    fill: rgb(0, 57, 180);
+}
+
+.Twitter:hover{
+    fill: rgb(92, 182, 255);
+}
+
+.Instagram:hover{
+    fill:rgb(173, 0, 0);
+}
+
+.CopyRight{
+    color: azure;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+@media (max-width:400px){
+    .Footer{
+        padding: 20px 10px;
+    }
+    .Map{
+        width: 300px;
+        margin-left: 0;
+    }
+}

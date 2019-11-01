@@ -1,0 +1,13 @@
+.List-Item:hover{
+  cursor: pointer;
+  color: aqua;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.List-Title{
+    font-size: 15px;
+    color: rgb(159, 198, 233); 
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}

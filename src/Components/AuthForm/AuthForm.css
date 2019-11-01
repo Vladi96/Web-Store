@@ -1,6 +1,6 @@
 .Auth-Form {
   width: 30vw;
-  padding: 5vh 0;
+  padding: 15px 0;
   box-sizing: border-box;
   border-top: 1px solid #999;
   border-bottom: 1px solid #999;
@@ -9,6 +9,7 @@
 .Auth-Form h2 {
   margin-bottom: 20px;
 }
+
 .OrderBtn{
   width: 200px;
   margin: 0 auto;

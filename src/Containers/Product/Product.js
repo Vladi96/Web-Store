@@ -7,6 +7,7 @@ import deliveryImg from "../../assets/images/delivery.png";
 import checkImg from "../../assets/images/check.png";
 import returnImg from "../../assets/images/return.png";
 import FullProductDetails from "../../Components/FullProductDetails/FullProductDetails";
+import Footer from "../Footer/Footer";
 
 import "./Product.css";
 
@@ -54,33 +55,36 @@ class Product extends Component {
 
   render() {
     return (
-      <div className="Product">
-        {this.state.data.images && this.state.data.productData ? (
-          <ProductHeader
-            orderClick={id =>
-              this.orderClickHandler(id, this.state.data.productData.price)
-            }
-            product={this.state.data}
-          />
-        ) : null}
-        <div className="ProductHeader-OrderStatus">
-          <div className="OrderStatus-Item">
-            <img src={deliveryImg} alt="Delivery" />
-            <p>Free Delivery</p>
+      <>
+        <div className="Product">
+          {this.state.data.images && this.state.data.productData ? (
+            <ProductHeader
+              orderClick={id =>
+                this.orderClickHandler(id, this.state.data.productData.price)
+              }
+              product={this.state.data}
+            />
+          ) : null}
+          <div className="ProductHeader-OrderStatus">
+            <div className="OrderStatus-Item">
+              <img src={deliveryImg} alt="Delivery" />
+              <p>Free Delivery</p>
+            </div>
+            <div className="OrderStatus-Item">
+              <img src={checkImg} alt="Check" />
+              <p>30 days return option</p>
+            </div>
+            <div className="OrderStatus-Item">
+              <img src={returnImg} alt="Return" />
+              <p>Checking the shipment</p>
+            </div>
           </div>
-          <div className="OrderStatus-Item">
-            <img src={checkImg} alt="Check" />
-            <p>30 days return option</p>
-          </div>
-          <div className="OrderStatus-Item">
-            <img src={returnImg} alt="Return" />
-            <p>Checking the shipment</p>
-          </div>
+          {this.state.data.productData ? (
+            <FullProductDetails data={this.state.data.productData} />
+          ) : null}
         </div>
-        {this.state.data.productData ? (
-          <FullProductDetails data={this.state.data.productData} />
-        ) : null}
-      </div>
+        <Footer />
+      </>
     );
   }
 }
